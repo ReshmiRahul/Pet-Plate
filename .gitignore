@@ -1,0 +1,10 @@
+# .gitignore content
+bin/
+obj/
+.vs/
+*.user
+*.exe
+*.pdb
+*.dll
+*.cache
+*.json

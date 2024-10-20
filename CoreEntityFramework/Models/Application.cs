@@ -16,7 +16,7 @@ namespace PetAdoption.Models
 
         // Foreign key referencing Pet
         [ForeignKey("Pet")]
-        public int PetID { get; set; }
+        public int PetId { get; set; }
 
         public DateTime ApplicationDate { get; set; }
 

@@ -3,6 +3,7 @@ using System.Data;
 using System.Reflection;
 using PetAdoption.Models;
 
+
 namespace PetAdoption
 {
     public class AppDbContext : DbContext

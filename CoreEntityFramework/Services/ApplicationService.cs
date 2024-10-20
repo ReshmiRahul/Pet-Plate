@@ -38,7 +38,9 @@ namespace PetAdoption.Services
                     ApplicationComments = Application.ApplicationComments,
                     ApplicationReason = Application.ApplicationReason,
                     AccountId = Application.AccountId,
-                    PetId = Application.PetID
+                    PetId = Application.PetId,
+                    AccountName = Application.Account.AccountName,
+                    PetName = Application.Pet.PetName
                 });
             }
             // return ApplicationDtos
@@ -72,7 +74,9 @@ namespace PetAdoption.Services
                 ApplicationComments = Application.ApplicationComments,
                 ApplicationReason = Application.ApplicationReason,
                 AccountId = Application.AccountId,
-                PetId = Application.PetID
+                PetId = Application.PetId,
+                AccountName = Application.Account.AccountName,
+                PetName = Application.Pet.PetName
             };
             return ApplicationDto;
 
@@ -96,7 +100,7 @@ namespace PetAdoption.Services
             existingApplication.ApplicationDate = (DateTime)ApplicationDto.ApplicationDate;
             existingApplication.ApplicationExperience = ApplicationDto.ApplicationExperience;
             existingApplication.ApplicationStatus = (int)ApplicationDto.ApplicationStatus;
-            existingApplication.PetID = ApplicationDto.PetId;
+            existingApplication.PetId = ApplicationDto.PetId;
             existingApplication.AccountId = ApplicationDto.AccountId;
 
             try
@@ -143,7 +147,7 @@ namespace PetAdoption.Services
                 ApplicationDate = (DateTime)ApplicationDto.ApplicationDate,
                 ApplicationExperience = ApplicationDto.ApplicationExperience,
                 ApplicationStatus = (int)ApplicationDto.ApplicationStatus,
-                PetID = ApplicationDto.PetId,
+                PetId = ApplicationDto.PetId,
                 Pet = Pet,
                 Account = Account,
                 AccountId = ApplicationDto.AccountId
@@ -225,7 +229,9 @@ namespace PetAdoption.Services
                     ApplicationComments = Application.ApplicationComments,
                     ApplicationReason = Application.ApplicationReason,
                     AccountId = Application.AccountId,
-                    PetId = Application.PetID
+                    PetId = Application.PetId,
+                    AccountName = Application.Account.AccountName,
+                    PetName = Application.Pet.PetName
                 });
             }
             // return 200 OK with ApplicationDtos
@@ -235,12 +241,12 @@ namespace PetAdoption.Services
 
         public async Task<IEnumerable<ApplicationDto>> ListApplicationsForPet(int id)
         {
-            // WHERE Petid == id
+            // WHERE PetId == id
             List<Application> Applications = await _context.Applications
                 .Include(i => i.Pet)
                 .Include(i => i.Account)
                 .Include(i => i.Account.Pets)
-                .Where(i => i.PetID == id)
+                .Where(i => i.PetId == id)
                 .ToListAsync();
 
             // empty list of data transfer object ApplicationDto
@@ -258,7 +264,9 @@ namespace PetAdoption.Services
                     ApplicationComments = Application.ApplicationComments,
                     ApplicationReason = Application.ApplicationReason,
                     AccountId = Application.AccountId,
-                    PetId = Application.PetID
+                    PetId = Application.PetId,
+                    AccountName = Application.Account.AccountName,
+                    PetName = Application.Pet.PetName
                 });
             }
             // return 200 OK with ApplicationDtos

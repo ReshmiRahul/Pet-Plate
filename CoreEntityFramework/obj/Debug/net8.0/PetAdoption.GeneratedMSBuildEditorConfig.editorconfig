@@ -17,39 +17,103 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PetAdoption
 build_property.RootNamespace = PetAdoption
-build_property.ProjectDir = C:\Users\reshm\Source\Repos\CoreServices\CoreEntityFramework\
+build_property.ProjectDir = C:\Users\reshm\source\repos\Pet-Adoption-Project\CoreEntityFramework\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\reshm\Source\Repos\CoreServices\CoreEntityFramework
+build_property.MSBuildProjectDirectory = C:\Users\reshm\source\repos\Pet-Adoption-Project\CoreEntityFramework
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/Home/Index.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/AccountPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/AccountPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/AccountPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/AccountPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/AccountPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/ApplicationPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25QYWdlXENvbmZpcm1EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/ApplicationPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25QYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/ApplicationPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25QYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/ApplicationPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25QYWdlXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/ApplicationPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25QYWdlXE5ldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/Home/Privacy.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/Shared/Error.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/PetPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0UGFnZVxDb25maXJtRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/PetPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0UGFnZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/PetPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0UGFnZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/PetPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0UGFnZVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/PetPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0UGFnZVxOZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/_ViewImports.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/_ViewStart.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/reshm/Source/Repos/CoreServices/CoreEntityFramework/Views/Shared/_Layout.cshtml]
+[C:/Users/reshm/source/repos/Pet-Adoption-Project/CoreEntityFramework/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-87lmc8w2r1

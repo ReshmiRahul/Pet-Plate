@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PetAdoption.Models.AccountDto>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Accounts List</h1>
+
+<p>
+    <a asp-action="New" class="btn btn-primary">Create New Account</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountName)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AccountId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.AccountId" class="btn btn-info">Details</a>
+                    <form asp-action="ConfirmDelete" asp-route-id="@item.AccountId" method="get" style="display:inline-block;">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\reshm\\Source\\Repos\\CoreServices\\CoreEntityFramework\\PetAdoption.csproj": {}
+    "C:\\Users\\reshm\\source\\repos\\Pet-Adoption-Project\\CoreEntityFramework\\PetAdoption.csproj": {}
   },
   "projects": {
-    "C:\\Users\\reshm\\Source\\Repos\\CoreServices\\CoreEntityFramework\\PetAdoption.csproj": {
+    "C:\\Users\\reshm\\source\\repos\\Pet-Adoption-Project\\CoreEntityFramework\\PetAdoption.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\reshm\\Source\\Repos\\CoreServices\\CoreEntityFramework\\PetAdoption.csproj",
+        "projectUniqueName": "C:\\Users\\reshm\\source\\repos\\Pet-Adoption-Project\\CoreEntityFramework\\PetAdoption.csproj",
         "projectName": "PetAdoption",
-        "projectPath": "C:\\Users\\reshm\\Source\\Repos\\CoreServices\\CoreEntityFramework\\PetAdoption.csproj",
+        "projectPath": "C:\\Users\\reshm\\source\\repos\\Pet-Adoption-Project\\CoreEntityFramework\\PetAdoption.csproj",
         "packagesPath": "C:\\Users\\reshm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\reshm\\Source\\Repos\\CoreServices\\CoreEntityFramework\\obj\\",
+        "outputPath": "C:\\Users\\reshm\\source\\repos\\Pet-Adoption-Project\\CoreEntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\reshm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.8, )"
