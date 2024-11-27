@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetAdoption;
 
@@ -11,9 +12,11 @@ using PetAdoption;
 namespace oreEntityFramework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127182411_FoodTruckTables")]
+    partial class FoodTruckTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,9 +106,6 @@ namespace oreEntityFramework.Migrations
                     b.Property<int>("ApplicationStatus")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FoodTruckId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PetId")
                         .HasColumnType("int");
 
@@ -113,91 +113,9 @@ namespace oreEntityFramework.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.HasIndex("FoodTruckId");
-
                     b.HasIndex("PetId");
 
                     b.ToTable("Applications");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.FoodTruck", b =>
-                {
-                    b.Property<int>("FoodTruckId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodTruckId"));
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("FoodTruckId");
-
-                    b.HasIndex("LocationId");
-
-                    b.ToTable("FoodTruck");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.Location", b =>
-                {
-                    b.Property<int>("LocationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LocationId"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("LocationId");
-
-                    b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.MenuItem", b =>
-                {
-                    b.Property<int>("MenuItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuItemId"));
-
-                    b.Property<int>("FoodTruckId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("MenuItemId");
-
-                    b.HasIndex("FoodTruckId");
-
-                    b.ToTable("MenuItem");
                 });
 
             modelBuilder.Entity("PetAdoption.Models.Pet", b =>
@@ -258,10 +176,6 @@ namespace oreEntityFramework.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PetAdoption.Models.FoodTruck", "FoodTruck")
-                        .WithMany("Applications")
-                        .HasForeignKey("FoodTruckId");
-
                     b.HasOne("PetAdoption.Models.Pet", "Pet")
                         .WithMany("Applications")
                         .HasForeignKey("PetId")
@@ -270,48 +184,12 @@ namespace oreEntityFramework.Migrations
 
                     b.Navigation("Account");
 
-                    b.Navigation("FoodTruck");
-
                     b.Navigation("Pet");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.FoodTruck", b =>
-                {
-                    b.HasOne("PetAdoption.Models.Location", "Location")
-                        .WithMany("FoodTrucks")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Location");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.MenuItem", b =>
-                {
-                    b.HasOne("PetAdoption.Models.FoodTruck", "FoodTruck")
-                        .WithMany("MenuItems")
-                        .HasForeignKey("FoodTruckId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FoodTruck");
                 });
 
             modelBuilder.Entity("PetAdoption.Models.Account", b =>
                 {
                     b.Navigation("Applications");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.FoodTruck", b =>
-                {
-                    b.Navigation("Applications");
-
-                    b.Navigation("MenuItems");
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.Location", b =>
-                {
-                    b.Navigation("FoodTrucks");
                 });
 
             modelBuilder.Entity("PetAdoption.Models.Pet", b =>

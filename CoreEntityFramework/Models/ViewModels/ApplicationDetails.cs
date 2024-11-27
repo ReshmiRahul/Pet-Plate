@@ -10,5 +10,8 @@
 
         // The application is also associated with a specific pet
         public required PetDto Pet { get; set; }
+
+        // The application is also associated with FoodTruck
+        public FoodTruckDto? AssociatedFoodTruck { get; set; }
     }
 }

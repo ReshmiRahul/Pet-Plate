@@ -13,6 +13,8 @@ namespace PetAdoption.Models
         public string AccountPassword { get; set; }
         public string AccountEmail { get; set; }
         public string AccountRole { get; set; }
+        public string AccountCity { get; set; }
+        public string AccountState { get; set; }
 
         // Navigation property for many-to-many relationship with Pet
         public ICollection<Pet> Pets { get; set; }
@@ -33,6 +35,7 @@ namespace PetAdoption.Models
         public string? AccountRole { get; set; }
 
         public string? AccountPassword { get; set; }
-
+        public string? AccountCity { get; set; }
+        public string? AccountState { get; set; }
     }
 }

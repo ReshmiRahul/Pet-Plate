@@ -18,6 +18,9 @@ namespace PetAdoption.Models
         [ForeignKey("Pet")]
         public int PetId { get; set; }
 
+        [ForeignKey("FoodTruck")]
+        public int? FoodTruckId { get; set; }
+
         public DateTime ApplicationDate { get; set; }
 
         public int ApplicationStatus { get; set; }
@@ -33,6 +36,9 @@ namespace PetAdoption.Models
 
         // Navigation property for the relationship with Pet
         public Pet Pet { get; set; }
+
+        // Navigation property for the relationship with FootTruck
+        public FoodTruck? FoodTruck { get; set; }
     }
     public class ApplicationDto
     {
@@ -55,5 +61,8 @@ namespace PetAdoption.Models
         //  Account and Pet names for reference
         public string? AccountName { get; set; }
         public string? PetName { get; set; }
+
+        public int? FoodTruckId { get; set; }
+        public string? FoodTruckName { get; set; }
     }
 }
