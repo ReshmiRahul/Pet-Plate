@@ -69,27 +69,6 @@
   },
   {
     "ContainingType": "PetAdoption.Controllers.AccountController",
-    "Method": "Link",
-    "RelativePath": "api/Account/Link",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "AccountId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PetId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PetAdoption.Controllers.AccountController",
     "Method": "ListAccounts",
     "RelativePath": "api/Account/List",
     "HttpMethod": "GET",
@@ -107,43 +86,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "PetAdoption.Controllers.AccountController",
-    "Method": "ListAccountsForPet",
-    "RelativePath": "api/Account/ListForPet/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PetAdoption.Controllers.AccountController",
-    "Method": "Unlink",
-    "RelativePath": "api/Account/Unlink",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "AccountId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PetId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "PetAdoption.Controllers.AccountController",
@@ -544,7 +486,7 @@
         "IsRequired": true
       },
       {
-        "Name": "LocationDto",
+        "Name": "locationDto",
         "Type": "PetAdoption.Models.LocationDto",
         "IsRequired": true
       }

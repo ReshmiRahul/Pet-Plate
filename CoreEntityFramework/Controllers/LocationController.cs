@@ -78,31 +78,31 @@ namespace PetAdoption.Controllers
         /// <example>
         /// PUT: api/Location/Update/5
         /// </example>
-        [HttpPut(template: "Update/{id}")]
-        public async Task<ActionResult> UpdateLocation(int id, LocationDto LocationDto)
+        [HttpPut("Update/{id}")]
+        public async Task<ActionResult> UpdateLocation(int id, LocationDto locationDto)
         {
-            // {id} in URL must match Locationid in POST Body
-            if (id != LocationDto.LocationId)
+            // Ensure the URL id matches the body LocationId
+            if (id != locationDto.LocationId)
             {
-                //400 Bad Request
-                return BadRequest();
+                return BadRequest("The ID in the URL does not match the LocationId in the body.");
             }
 
-            ServiceResponse response = await _locationService.UpdateLocation(id, LocationDto);
+            // Call the service method with both 'id' and 'locationDto'
+            ServiceResponse response = await _locationService.UpdateLocation(id, locationDto);
 
             if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                return NotFound(response.Messages);
+                return NotFound(new { Message = "Location not found.", Details = response.Messages });
             }
-            else if (response.Status == ServiceResponse.ServiceStatus.Error)
+
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return StatusCode(500, response.Messages);
+                return StatusCode(500, new { Message = "An error occurred while updating the location.", Details = response.Messages });
             }
 
-            //Status = Updated
             return NoContent();
-
         }
+
 
         /// <summary>
         /// Adds a Location

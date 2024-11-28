@@ -221,25 +221,39 @@ namespace PetAdoption.Services
             });
         }
 
-        public void UpdateLocation(int id, LocationDto locationDto)
+        // Implementation of UpdateLocation
+        public async Task<ServiceResponse> UpdateLocation(int id, LocationDto locationDto)
         {
-            var existingLocation = _context.Locations.FirstOrDefault(l => l.LocationId == id);
+            var response = new ServiceResponse();
 
-            if (existingLocation == null)
-                throw new Exception("Location not found.");
+            // Find the location by its ID
+            var location = await _context.Locations.FirstOrDefaultAsync(l => l.LocationId == id);
+            if (location == null)
+            {
+                response.Status = ServiceResponse.ServiceStatus.NotFound;
+                response.Messages.Add("Location not found");
+                return response;
+            }
 
-            // Update the location fields
-            existingLocation.Address = locationDto.Address;
-            existingLocation.City = locationDto.City;
-            existingLocation.State = locationDto.State;
+            // Map the updated values from LocationDto to the existing Location
+            location.Address = locationDto.Address;
+            location.City = locationDto.City;
+            location.State = locationDto.State;
 
-            // Save changes to the database
-            _context.SaveChanges();
-        }
+            // Save the changes to the database
+            try
+            {
+                await _context.SaveChangesAsync();
+                response.Status = ServiceResponse.ServiceStatus.Updated;
+                response.Messages.Add("Location updated successfully");
+            }
+            catch (Exception ex)
+            {
+                response.Status = ServiceResponse.ServiceStatus.Error;
+                response.Messages.Add("An error occurred while updating the location: " + ex.Message);
+            }
 
-        Task<ServiceResponse> ILocationService.UpdateLocation(int id, LocationDto locationDto)
-        {
-            throw new NotImplementedException();
+            return response;
         }
     }
 }
