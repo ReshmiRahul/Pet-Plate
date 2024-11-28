@@ -15,6 +15,9 @@ namespace PetAdoption
 
         public DbSet<Application> Applications { get; set; }
 
+        public DbSet<FoodTruck> FoodTrucks { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
