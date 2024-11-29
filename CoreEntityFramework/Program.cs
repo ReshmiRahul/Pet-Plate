@@ -15,6 +15,7 @@ builder.Services.AddScoped<IPetService, PetService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IFoodTruckService, FoodTruckService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 
 var connectionString = builder.Configuration.GetConnectionString("MyAppCs");
 builder.Services.AddDbContext<AppDbContext>(options =>

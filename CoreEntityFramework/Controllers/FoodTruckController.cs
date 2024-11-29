@@ -110,6 +110,7 @@ namespace PetAdoption.Controllers
         /// <example>
         /// POST: api/FoodTruck/Add
         /// </example>
+        // POST: api/FoodTruck/Add
         [HttpPost("Add")]
         public async Task<ActionResult<FoodTruck>> AddFoodTruck(FoodTruckDto foodTruckDto)
         {
@@ -117,11 +118,12 @@ namespace PetAdoption.Controllers
 
             if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return StatusCode(500, response.Messages);
+                return StatusCode(500, new { Message = "Error creating FoodTruck", Errors = response.Messages });
             }
 
-            return Created($"api/FoodTruck/Find/{response.CreatedId}", foodTruckDto);
+            return CreatedAtAction("FindFoodTruck", new { id = response.CreatedId }, foodTruckDto);
         }
+
 
         /// <summary>
         /// Deletes a FoodTruck

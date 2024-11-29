@@ -26,8 +26,5 @@ namespace PetAdoption.Models
 
         // Foreign Key to FoodTruck
         public int FoodTruckId { get; set; }
-
-        // FoodTruck Name for convenience
-        public string FoodTruckName { get; set; }
     }
 }
