@@ -1,41 +1,35 @@
-﻿@model PetAdoption.Models.AccountDto
+﻿@model PetAdoption.Models.MenuItemDto
 
 @{
-    ViewData["Title"] = "Edit Account";
+    ViewData["Title"] = "Edit Menu Item";
 }
 
-<h1>Edit Account</h1>
+<h1>Edit Menu Item</h1>
 
-<h4>Account</h4>
+<h4>Menu Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Update" asp-route-id="@Model.AccountId">
+        <form asp-action="Update" asp-route-id="@Model.MenuItemId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AccountId" />
+            <input type="hidden" asp-for="MenuItemId" />
 
             <div class="form-group">
-                <label asp-for="AccountName" class="control-label"></label>
-                <input asp-for="AccountName" class="form-control" />
-                <span asp-validation-for="AccountName" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="AccountEmail" class="control-label"></label>
-                <input asp-for="AccountEmail" class="form-control" />
-                <span asp-validation-for="AccountEmail" class="text-danger"></span>
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Price" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="AccountRole" class="control-label"></label>
-                <input asp-for="AccountRole" class="form-control" />
-                <span asp-validation-for="AccountRole" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="AccountPassword" class="control-label"></label>
-                <input asp-for="AccountPassword" class="form-control" type="password" />
-                <span asp-validation-for="AccountPassword" class="text-danger"></span>
+                <label asp-for="FoodTruckId" class="control-label"></label>
+                <select asp-for="FoodTruckId" asp-items="ViewBag.FoodTrucks" class="form-control"></select>
+                <span asp-validation-for="FoodTruckId" class="text-danger"></span>
             </div>
 
             <div class="form-group">

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PetAdoption.Interfaces;
 using PetAdoption.Models;
 using PetAdoption.Models.ViewModels;
@@ -11,12 +12,14 @@ namespace PetAdoption.Controllers
     {
         private readonly IFoodTruckService _foodTruckService;
         private readonly IMenuItemService _menuItemService;
+        private readonly ILocationService _locationService;
 
         // Dependency injection of the FoodTruck service
-        public FoodTruckPageController(IFoodTruckService foodTruckService, IMenuItemService menuItemService)
+        public FoodTruckPageController(IFoodTruckService foodTruckService, IMenuItemService menuItemService, ILocationService locationService)
         {
             _foodTruckService = foodTruckService;
             _menuItemService = menuItemService;
+            _locationService = locationService;
         }
 
         // Default action: redirect to list of food trucks
@@ -33,7 +36,6 @@ namespace PetAdoption.Controllers
         }
 
         // GET: FoodTruckPage/Details/{id}
-        // GET: FoodTruck/Details/{id}
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -59,15 +61,10 @@ namespace PetAdoption.Controllers
                 MenuItems = associatedMenuItems
             };
 
-            return View(foodTruckInfo);
+            return View(foodTruckInfo); // Make sure the correct model is passed here
         }
 
 
-        // GET FoodTruckPage/New
-        public ActionResult New()
-        {
-            return View();
-        }
 
         // POST FoodTruckPage/Add
         [HttpPost]
@@ -84,6 +81,7 @@ namespace PetAdoption.Controllers
                 return View("Error", new ErrorViewModel() { Errors = response.Messages });
             }
         }
+
 
         // GET FoodTruckPage/Edit/{id}
         [HttpGet]
@@ -147,5 +145,18 @@ namespace PetAdoption.Controllers
                 return View("Error", new ErrorViewModel() { Errors = response.Messages });
             }
         }
+        public async Task<IActionResult> New()
+        {
+            var locations = await _locationService.ListLocations(); // Fetch locations
+            ViewBag.Locations = locations.Select(location => new SelectListItem
+            {
+                Value = location.LocationId.ToString(),
+                Text = location.City.ToString(),
+            }).ToList();
+
+            return View(new FoodTruckDto()); // Return an empty DTO for the form
+        }
+
+
     }
 }

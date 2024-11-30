@@ -188,5 +188,10 @@ namespace PetAdoption.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<ServiceResponse> UpdateMenuItem(int id, MenuItemDto menuItemDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

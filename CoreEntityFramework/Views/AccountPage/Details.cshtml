@@ -1,47 +1,35 @@
-﻿@model PetAdoption.Models.ViewModels.LocationDetails
+﻿@model PetAdoption.Models.ViewModels.AccountDetails
 
 @{
-    ViewData["Title"] = "Location Details";
+    ViewData["Title"] = "Account Details";
 }
 
 <div class="container mt-4">
+
     @if (Model != null)
     {
         <div class="card">
             <div class="card-header">
-                Location Information
+                Account Information
             </div>
             <div class="card-body">
-                <h5 class="card-title">Location ID: @Model.Location.LocationId</h5>
-                <p class="card-text"><strong>Address:</strong> @Model.Location.Address</p>
-                <p class="card-text"><strong>City:</strong> @Model.Location.City</p>
-                <p class="card-text"><strong>State:</strong> @Model.Location.State</p>
-
-                @if (Model.AssociatedFoodTrucks != null && Model.AssociatedFoodTrucks.Any())
-                {
-                    <h6 class="mt-4">Associated Food Trucks:</h6>
-                    <ul>
-                        @foreach (var foodTruck in Model.AssociatedFoodTrucks)
-                        {
-                            <li>@foodTruck.Name (ID: @foodTruck.FoodTruckId)</li>
-                        }
-                    </ul>
-                }
-                else
-                {
-                    <p class="text-muted">No food trucks associated with this location.</p>
-                }
+                <h5 class="card-title">Account ID: @Model.Account.AccountId</h5>
+                <p class="card-text"><strong>Account Name:</strong> @Model.Account.AccountName</p>
+                <p class="card-text"><strong>Email:</strong> @Model.Account.AccountEmail</p>
+                <p class="card-text"><strong>Role:</strong> @Model.Account.AccountRole</p>
+                <p class="card-text"><strong>State:</strong> @Model.Account.AccountState</p>
+                <p class="card-text"><strong>City:</strong> @Model.Account.AccountCity</p>
             </div>
             <div class="card-footer text-muted">
-                <a href="@Url.Action("Edit", "LocationPage", new { id = Model.Location.LocationId })" class="btn btn-warning">Edit Location</a>
-                <a href="@Url.Action("List", "LocationPage")" class="btn btn-secondary">Back to List</a>
+                <a href="@Url.Action("Edit", "AccountPage", new { id = Model.Account.AccountId })" class="btn btn-warning">Edit Account</a>
+                <a href="@Url.Action("List", "AccountPage")" class="btn btn-secondary">Back to List</a>
             </div>
         </div>
     }
     else
     {
         <div class="alert alert-danger" role="alert">
-            Location not found!
+            Account not found!
         </div>
     }
 </div>
