@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetAdoption.Interfaces;
 using PetAdoption.Models;
+using PetAdoption.Models.ViewModels;
+using PetAdoption.Services;
 using ErrorViewModel = PetAdoption.Models.ViewModels.ErrorViewModel;
 
 namespace PetAdoption.Controllers
@@ -8,11 +10,13 @@ namespace PetAdoption.Controllers
     public class FoodTruckPageController : Controller
     {
         private readonly IFoodTruckService _foodTruckService;
+        private readonly IMenuItemService _menuItemService;
 
         // Dependency injection of the FoodTruck service
-        public FoodTruckPageController(IFoodTruckService foodTruckService)
+        public FoodTruckPageController(IFoodTruckService foodTruckService, IMenuItemService menuItemService)
         {
             _foodTruckService = foodTruckService;
+            _menuItemService = menuItemService;
         }
 
         // Default action: redirect to list of food trucks
@@ -29,20 +33,35 @@ namespace PetAdoption.Controllers
         }
 
         // GET: FoodTruckPage/Details/{id}
+        // GET: FoodTruck/Details/{id}
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
+            // Fetch the food truck details using the service layer
             FoodTruckDto? foodTruckDto = await _foodTruckService.FindFoodTruck(id);
 
+            // Fetch associated menu items (or other related entities)
+            IEnumerable<MenuItemDto> associatedMenuItems = await _menuItemService.ListMenuItems();
+
+            // Handle null case for the primary object
             if (foodTruckDto == null)
             {
-                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find food truck" } });
+                return View("Error", new ErrorViewModel
+                {
+                    Errors = new List<string> { "Could not find food truck" }
+                });
             }
-            else
+
+            // Create the view model and pass it to the view
+            FoodTruckDetails foodTruckInfo = new FoodTruckDetails
             {
-                return View(foodTruckDto);
-            }
+                FoodTruck = foodTruckDto,
+                MenuItems = associatedMenuItems
+            };
+
+            return View(foodTruckInfo);
         }
+
 
         // GET FoodTruckPage/New
         public ActionResult New()

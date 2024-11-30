@@ -5,17 +5,20 @@ using PetAdoption.Models.ViewModels;
 using ErrorViewModel = PetAdoption.Models.ViewModels.ErrorViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PetAdoption.Services;
 
 namespace PetAdoption.Controllers
 {
     public class MenuItemPageController : Controller
     {
         private readonly IMenuItemService _menuItemService;
+        private readonly IFoodTruckService _foodTruckService;
 
         // Dependency injection of the MenuItem service
-        public MenuItemPageController(IMenuItemService menuItemService)
+        public MenuItemPageController(IMenuItemService menuItemService, IFoodTruckService foodTruckService)
         {
             _menuItemService = menuItemService;
+            _foodTruckService = foodTruckService;
         }
 
         // Default action: redirect to list of menu items
@@ -32,19 +35,32 @@ namespace PetAdoption.Controllers
         }
 
         // GET: MenuItemPage/Details/{id}
+        // GET: MenuItemPage/Details/{id}
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            MenuItemDto? menuItemDto = await _menuItemService.FindMenuItem(id);
+            // Fetch the menu item details using the service layer
+            var menuItemDto = await _menuItemService.FindMenuItem(id);
 
             if (menuItemDto == null)
             {
-                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find menu item" } });
+                return View("Error", new ErrorViewModel
+                {
+                    Errors = new List<string> { "Could not find menu item" }
+                });
             }
-            else
+
+            // Fetch associated food truck details
+            var foodTruckDto = await _foodTruckService.FindFoodTruck(menuItemDto.FoodTruckId);
+
+            // Create the view model and pass it to the view
+            var menuItemDetails = new MenuItemDetails
             {
-                return View(menuItemDto);
-            }
+                MenuItem = menuItemDto,
+                AssociatedFoodTruck = foodTruckDto
+            };
+
+            return View(menuItemDetails);
         }
 
         // GET MenuItemPage/New

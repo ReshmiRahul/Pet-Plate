@@ -2,6 +2,7 @@
 using PetAdoption.Interfaces;
 using PetAdoption.Models;
 using PetAdoption.Models.ViewModels;
+using PetAdoption.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ErrorViewModel = PetAdoption.Models.ViewModels.ErrorViewModel;
@@ -32,21 +33,35 @@ namespace PetAdoption.Controllers
             return View(locationDtos);
         }
 
-        // GET: LocationPage/Details/{id}
+        // GET: Location/Details/{id}
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
+            // Fetch the location details
             LocationDto? locationDto = await _locationService.FindLocation(id);
 
+            // Fetch associated entities (if applicable, e.g., food trucks or pets)
+            IEnumerable<FoodTruckDto> associatedFoodTrucks = await _locationService.ListFoodTrucksByLocation(id);
+
+            // Handle null case for the primary object
             if (locationDto == null)
             {
-                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find location" } });
+                return View("Error", new ErrorViewModel
+                {
+                    Errors = new List<string> { "Could not find location" }
+                });
             }
-            else
+
+            // Create the view model and pass it to the view
+            LocationDetails locationInfo = new LocationDetails
             {
-                return View(locationDto);
-            }
+                Location = locationDto,
+                AssociatedFoodTrucks = associatedFoodTrucks
+            };
+
+            return View(locationInfo);
         }
+
 
         // GET LocationPage/New
         public ActionResult New()
