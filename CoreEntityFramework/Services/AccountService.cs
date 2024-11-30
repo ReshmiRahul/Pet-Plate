@@ -32,7 +32,9 @@ namespace PetAdoption.Services
                     AccountName = Account.AccountName,
                     AccountEmail = Account.AccountEmail,
                     AccountRole = Account.AccountRole,
-                    AccountPassword = Account.AccountPassword
+                    AccountPassword = Account.AccountPassword,
+                    AccountCity = Account.AccountCity,
+                    AccountState = Account.AccountState
                 });
             }
             // return AccountDtos
@@ -60,7 +62,9 @@ namespace PetAdoption.Services
                 AccountName = Account.AccountName,
                 AccountEmail = Account.AccountEmail,
                 AccountRole = Account.AccountRole,
-                AccountPassword = Account.AccountPassword
+                AccountPassword = Account.AccountPassword,
+                AccountCity = Account.AccountCity,
+                AccountState = Account.AccountState
             };
             return AccountDto;
 
@@ -79,7 +83,9 @@ namespace PetAdoption.Services
                 AccountName = AccountDto.AccountName,
                 AccountEmail = AccountDto.AccountEmail,
                 AccountRole = AccountDto.AccountRole,
-                AccountPassword = AccountDto.AccountPassword
+                AccountPassword = AccountDto.AccountPassword,
+                AccountCity = AccountDto.AccountCity,
+                AccountState = AccountDto.AccountState
             };
             // flags that the object has changed
             _context.Entry(Account).State = EntityState.Modified;
@@ -112,7 +118,9 @@ namespace PetAdoption.Services
                 AccountName = AccountDto.AccountName,
                 AccountEmail = AccountDto.AccountEmail,
                 AccountRole = AccountDto.AccountRole,
-                AccountPassword = AccountDto.AccountPassword
+                AccountPassword = AccountDto.AccountPassword,
+                AccountCity = AccountDto.AccountCity,
+                AccountState = AccountDto.AccountState
             };
             // SQL Equivalent: Insert into Accounts (..) values (..)
 
@@ -185,7 +193,9 @@ namespace PetAdoption.Services
                     AccountName = Account.AccountName,
                     AccountEmail = Account.AccountEmail,
                     AccountRole = Account.AccountRole,
-                    AccountPassword = Account.AccountPassword
+                    AccountPassword = Account.AccountPassword,
+                    AccountCity = Account.AccountCity,
+                    AccountState = Account.AccountState
                 });
             }
             // return AccountDtos

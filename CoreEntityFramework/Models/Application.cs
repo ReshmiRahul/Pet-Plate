@@ -37,7 +37,7 @@ namespace PetAdoption.Models
         // Navigation property for the relationship with Pet
         public Pet Pet { get; set; }
 
-        // Navigation property for the relationship with FootTruck
+        // Navigation property for the relationship with FoodTruck
         public FoodTruck? FoodTruck { get; set; }
     }
     public class ApplicationDto

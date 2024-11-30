@@ -1,6 +1,6 @@
 ﻿namespace PetAdoption.Models.ViewModels
 {
-    public class FootTruckDetails
+    public class FoodTruckDetails
     {
         // FoodTruck details must have a FoodTruckDto object
         public required FoodTruckDto FoodTruck { get; set; }

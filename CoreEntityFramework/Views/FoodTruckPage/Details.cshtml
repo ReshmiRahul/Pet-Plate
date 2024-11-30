@@ -1,0 +1,34 @@
+﻿@model PetAdoption.Models.ViewModels.FoodTruckDetails
+
+@{
+    ViewData["Title"] = "Food Truck Details";
+}
+
+<div class="container mt-4">
+    @if (Model != null && Model.FoodTruck != null)
+    {
+        <div class="card">
+            <div class="card-header">
+                Food Truck Information
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Food Truck Name: @Model.FoodTruck.Name</h5>
+                <p class="card-text"><strong>Description:</strong> @Model.FoodTruck.Description</p>
+                <p class="card-text"><strong>Contact:</strong> @Model.FoodTruck.Contact</p>
+                <p class="card-text"><strong>Location Address:</strong> @Model.FoodTruck.LocationAddress</p>
+
+                
+            </div>
+            <div class="card-footer text-muted">
+                <a href="@Url.Action("Edit", "FoodTruckPage", new { id = Model.FoodTruck.FoodTruckId })" class="btn btn-warning">Edit Food Truck</a>
+                <a href="@Url.Action("List", "FoodTruckPage")" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            Food Truck not found!
+        </div>
+    }
+</div>

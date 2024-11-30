@@ -1,18 +1,17 @@
 ﻿@model PetAdoption.Models.AccountDto
 
 @{
-    ViewData["Title"] = "Edit Account";
+    ViewData["Title"] = "Create New Account";
 }
 
-<h1>Edit Account</h1>
+<h1>Create New Account</h1>
 
 <h4>Account</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Update" asp-route-id="@Model.AccountId">
+        <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AccountId" />
 
             <div class="form-group">
                 <label asp-for="AccountName" class="control-label"></label>
@@ -33,25 +32,13 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="AccountCity" class="control-label"></label>
-                <input asp-for="AccountCity" class="form-control" />
-                <span asp-validation-for="AccountCity" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="AccountState" class="control-label"></label>
-                <input asp-for="AccountState" class="form-control" />
-                <span asp-validation-for="AccountState" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="AccountPassword" class="control-label"></label>
                 <input asp-for="AccountPassword" class="form-control" type="password" />
                 <span asp-validation-for="AccountPassword" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

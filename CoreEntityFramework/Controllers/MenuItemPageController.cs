@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace PetAdoption.Controllers
 {
-    public class MenuListPageController : Controller
+    public class MenuItemPageController : Controller
     {
         private readonly IMenuItemService _menuItemService;
 
         // Dependency injection of the MenuItem service
-        public MenuListPageController(IMenuItemService menuItemService)
+        public MenuItemPageController(IMenuItemService menuItemService)
         {
             _menuItemService = menuItemService;
         }
@@ -24,14 +24,14 @@ namespace PetAdoption.Controllers
             return RedirectToAction("List");
         }
 
-        // GET: MenuListPage/List
+        // GET: MenuItemPage/List
         public async Task<IActionResult> List()
         {
             IEnumerable<MenuItemDto?> menuItemDtos = await _menuItemService.ListMenuItems();
             return View(menuItemDtos);
         }
 
-        // GET: MenuListPage/Details/{id}
+        // GET: MenuItemPage/Details/{id}
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -47,13 +47,13 @@ namespace PetAdoption.Controllers
             }
         }
 
-        // GET MenuListPage/New
+        // GET MenuItemPage/New
         public IActionResult New()
         {
             return View();
         }
 
-        // POST MenuListPage/Add
+        // POST MenuItemPage/Add
         [HttpPost]
         public async Task<IActionResult> Add(MenuItemDto menuItemDto)
         {
@@ -63,7 +63,7 @@ namespace PetAdoption.Controllers
 
                 if (response.Status == ServiceResponse.ServiceStatus.Created)
                 {
-                    return RedirectToAction("Details", "MenuListPage", new { id = response.CreatedId });
+                    return RedirectToAction("Details", "MenuItemPage", new { id = response.CreatedId });
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace PetAdoption.Controllers
             }
         }
 
-        // GET MenuListPage/Edit/{id}
+        // GET MenuItemPage/Edit/{id}
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -91,7 +91,7 @@ namespace PetAdoption.Controllers
             }
         }
 
-        // POST MenuListPage/Update/{id}
+        // POST MenuItemPage/Update/{id}
         [HttpPost]
         public async Task<IActionResult> Update(int id, MenuItemDto menuItemDto)
         {
@@ -99,7 +99,7 @@ namespace PetAdoption.Controllers
 
             if (response.Status == ServiceResponse.ServiceStatus.Updated)
             {
-                return RedirectToAction("Details", "MenuListPage", new { id = id });
+                return RedirectToAction("Details", "MenuItemPage", new { id = id });
             }
             else
             {
@@ -107,7 +107,7 @@ namespace PetAdoption.Controllers
             }
         }
 
-        // GET MenuListPage/ConfirmDelete/{id}
+        // GET MenuItemPage/ConfirmDelete/{id}
         [HttpGet]
         public async Task<IActionResult> ConfirmDelete(int id)
         {
@@ -122,7 +122,7 @@ namespace PetAdoption.Controllers
             }
         }
 
-        // POST MenuListPage/Delete/{id}
+        // POST MenuItemPage/Delete/{id}
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -130,7 +130,7 @@ namespace PetAdoption.Controllers
 
             if (response.Status == ServiceResponse.ServiceStatus.Deleted)
             {
-                return RedirectToAction("List", "MenuListPage");
+                return RedirectToAction("List", "MenuItemPage");
             }
             else
             {
