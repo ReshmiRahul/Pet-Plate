@@ -1,23 +1,25 @@
-﻿@model PetAdoption.Models.ViewModels.MenuItemDetails
+﻿@model PetAdoption.Models.ViewModels.FoodTruckDetails
 
-<h1>Menu Item Details</h1>
+<h1>Food Truck Details</h1>
 
 <div>
-    <h2>@Model.MenuItem.Name</h2>
-    <p>Price: @Model.MenuItem.Price.ToString("C")</p>
+    <h2>@Model.FoodTruck.Name</h2>
+    <p>@Model.FoodTruck.Description</p>
+    <p>Contact: @Model.FoodTruck.Contact</p>
+    <p>Location Address: @Model.FoodTruck.LocationAddress</p>
 </div>
 
-@if (Model.AssociatedFoodTruck != null)
+@if (Model.MenuItems != null && Model.MenuItems.Any())
 {
-    <div>
-        <h3>Associated Food Truck</h3>
-        <p>Name: @Model.AssociatedFoodTruck.Name</p>
-        <p>Description: @Model.AssociatedFoodTruck.Description</p>
-        <p>Contact: @Model.AssociatedFoodTruck.Contact</p>
-        <p>Location Address: @Model.AssociatedFoodTruck.LocationAddress</p>
-    </div>
+    <h3>Menu Items</h3>
+    <ul>
+        @foreach (var item in Model.MenuItems)
+        {
+            <li>@item.Name (@item.Price.ToString("C"))</li>
+        }
+    </ul>
 }
 else
 {
-    <p>No associated food truck found for this menu item.</p>
+    <p>No menu items are associated with this food truck.</p>
 }
