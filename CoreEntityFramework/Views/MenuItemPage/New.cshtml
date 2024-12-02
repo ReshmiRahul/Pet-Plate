@@ -25,9 +25,16 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
 
+            <!-- Location -->
             <div class="form-group">
-                <label asp-for="FoodTruckId" class="control-label"></label>
-                <input asp-for="FoodTruckId" class="form-control" type="number" />
+                <label asp-for="FoodTruckId" class="control-label">Food Truck Name</label>
+                <select asp-for="FoodTruckId" class="form-control">
+                    <option value="">Select a FoodTruck</option>
+                    @foreach (var foodTruck in ViewBag.FoodTrucks)
+                    {
+                        <option value="@foodTruck.Value">@foodTruck.Text</option>
+                    }
+                </select>
                 <span asp-validation-for="FoodTruckId" class="text-danger"></span>
             </div>
 

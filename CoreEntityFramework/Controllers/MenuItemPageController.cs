@@ -6,6 +6,7 @@ using ErrorViewModel = PetAdoption.Models.ViewModels.ErrorViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using PetAdoption.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace PetAdoption.Controllers
 {
@@ -64,9 +65,16 @@ namespace PetAdoption.Controllers
         }
 
         // GET MenuItemPage/New
-        public IActionResult New()
+        public async Task<IActionResult> New()
         {
-            return View();
+            var foodTrucks = await _foodTruckService.ListFoodTrucks(); // Fetch foodTrucks
+            ViewBag.FoodTrucks = foodTrucks.Select(foodTruck => new SelectListItem
+            {
+                Value = foodTruck.FoodTruckId.ToString(),
+                Text = foodTruck.Name.ToString(),
+            }).ToList();
+
+            return View(new MenuItemDto()); // Return an empty DTO for the form
         }
 
         // POST MenuItemPage/Add

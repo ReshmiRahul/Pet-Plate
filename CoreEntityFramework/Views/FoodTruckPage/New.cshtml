@@ -36,7 +36,7 @@
 
             <!-- Location -->
             <div class="form-group">
-                <label asp-for="LocationId" class="control-label"></label>
+                <label asp-for="LocationId" class="control-label">Location Name</label>
                 <select asp-for="LocationId" class="form-control">
                     <option value="">Select a Location</option>
                     @foreach (var location in ViewBag.Locations)
